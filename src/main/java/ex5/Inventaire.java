@@ -5,32 +5,40 @@ import java.util.List;
 
 public class Inventaire {
 
+    /**
+     * Liste de toutes les caisses de l'inventaire
+     */
     private List<Caisse> caisses;
 
+    /**
+     * Constructeur de l'inventaire
+     * Construit et ajoute une petite, moyenne et grande caisse
+     */
     public Inventaire() {
-        caisses = new ArrayList<>();
-        caisses.add(new Caisse("Petits objets"));
-        caisses.add(new Caisse("Moyens objets"));
-        caisses.add(new Caisse("Grands objets"));
+        caisses = new ArrayList<Caisse>();
+        caisses.add(new PetiteCaisse());
+        caisses.add(new CaisseMoyenne());
+        caisses.add(new GrandeCaisse());
     }
 
+    /**
+     * Ajoute un item
+     * @param item item à ajouter
+     */
     public void addItem(Item item) {
-
-        //TODO Faites évoluer ce code (idée: c'est le caisse qui doit "savoir" si elle peut accepter un objet ou non)
-        if (item.getPoids() < 5) {
-            caisses.get(0).getItems().add(item);
-        }
-        if (item.getPoids() >= 5 && item.getPoids() <= 20) {
-            caisses.get(1).getItems().add(item);
-        }
-        if (item.getPoids() >= 20) {
-            caisses.get(2).getItems().add(item);
-        }
+        caisses.forEach(caisse -> {
+            caisse.addItem(item);
+        });
     }
 
+    /**
+     * @return le nombre totale d'items dans toutes les caisses
+     */
     public int taille() {
-
-        //TODO faites évoluer ce code.
-        return caisses.get(0).getItems().size() + caisses.get(1).getItems().size() + caisses.get(2).getItems().size();
+        int taille = 0;
+        for (Caisse caisse : caisses) {
+            taille += caisse.getItems().size();
+        }
+        return taille;
     }
 }
