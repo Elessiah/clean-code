@@ -25,6 +25,7 @@ public class DateUtils {
      * @return une string de la date formater par défaut dd/MM/yyyy HH:mm:ss
      */
     public static String formatDefaut(Date date) {
-        return format("dd/MM/yyyy HH:mm:ss", date);
+        String formatComplet = "dd/MM/yyyy HH:mm:ss";
+        return format(formatComplet, date);
     }
 }
