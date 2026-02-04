@@ -1,5 +1,9 @@
 package ex3;
 
+import ex3.animal.Animal;
+import ex3.animal.Comportement;
+import ex3.animal.Type;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +27,7 @@ public class Zoo {
      * @param type Type de l'animal
      * @param comportement Comportement de l'animal
      */
-    public void addAnimal(String nom, String type, String comportement) {
+    public void addAnimal(String nom, Type type, Comportement comportement) {
         animals.add(new Animal(nom, type, comportement));
     }
 
@@ -32,7 +36,7 @@ public class Zoo {
      */
     public void afficherListeAnimaux() {
         animals.forEach(animal -> {
-            System.out.println(animal.getNom() + " " + animal.getType() + " " + animal.getComportement());
+            System.out.println(animal.getNom() + " " + animal.getStrType() + " " + animal.getStrComportement());
         });
     }
 

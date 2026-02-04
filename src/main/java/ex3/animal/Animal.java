@@ -1,4 +1,4 @@
-package ex3;
+package ex3.animal;
 
 public class Animal {
     /**
@@ -9,12 +9,12 @@ public class Animal {
     /**
      * Type de l'animal
      */
-    private String type;
+    private Type type;
 
     /**
      * Comportement de l'animal
      */
-    private String comportement;
+    private Comportement comportement;
 
     /**
      * Constructeur de l'animal
@@ -23,8 +23,8 @@ public class Animal {
      * @param comportement Comportement de l'animal
      */
     public Animal(String nom,
-                  String type,
-                  String comportement)
+                  Type type,
+                  Comportement comportement)
     {
         this.nom = nom;
         this.type = type;
@@ -49,30 +49,44 @@ public class Animal {
     /**
      * @return le type de l'animal
      */
-    public String getType() {
+    public Type getType() {
         return type;
+    }
+
+    /**
+     * @return le type string de l'animal
+     */
+    public String getStrType() {
+        return type.getValue();
     }
 
     /**
      * Redéfinie le type de l'animal
      * @param type nouveau type à appliquer
      */
-    public void setType(String type) {
+    public void setType(Type type) {
         this.type = type;
     }
 
     /**
      * @return le comportement de l'animal
      */
-    public String getComportement() {
+    public Comportement getComportement() {
         return comportement;
     }
 
+
+    /**
+     * @return le comportement string de l'animal
+     */
+    public String getStrComportement() {
+        return comportement.getValue();
+    }
     /**
      * Redéfinie le comportement de l'animal
      * @param comportement Nouveau comportement à appliquer
      */
-    public void setComportement(String comportement) {
+    public void setComportement(Comportement comportement) {
         this.comportement = comportement;
     }
 }
